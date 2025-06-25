@@ -99,19 +99,42 @@ printPlaylist("p01");
 // (already implemented: use this for addTrack and addPlaylist)
 const generateUid = function() {
   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-}
+};
 
-
-// adds a track to the library
 const addTrack = function(name, artist, album) {
+  const id = generateUid();
 
-}
+  const newTrack = {
+    id: id,
+    name: name,
+    artist: artist,
+    album: album
+  };
+
+  library.tracks[id] = newTrack;
+};
+
+addTrack("Lost Ones", "Ms. Lauryn Hill", "The Miseducation of Lauryn Hill");
+console.log(library.tracks);
+// adds a track to the library
+
 
 
 // adds a playlist to the library
 const addPlaylist = function(name) {
+const id = generateUid();
 
-}
+  const newPlaylist = {
+    id: id,
+    name: name,
+    tracks: []
+  };
+
+  library.playlists[id] = newPlaylist;
+};
+
+addPlaylist("My Favourite Songs");
+printPlaylists();
 
 
 // STRETCH:
